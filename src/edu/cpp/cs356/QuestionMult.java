@@ -1,21 +1,22 @@
 package edu.cpp.cs356;
 
-public class QuestionMult {
+import java.util.concurrent.ThreadLocalRandom;
 
-	private boolean questionType;
+public class QuestionMult implements Question{
+
 	private String question;
 	private boolean[] answers;
 	private String[] choices;
 	
-	public QuestionMult(boolean type, String question, String[] choices, boolean[] answers) {
-		this.questionType = type;
-		this.question = question;
-		this.choices = choices;
-		this.answers = answers;
+	public QuestionMult() {
+		question = multiOne[0];
+		choices = new String[] {multiOne[1], multiOne[2], multiOne[3], multiOne[4]};
+		answers = multiOneA;
 	}
 	
-	private boolean checkAnswers(boolean[] studChoices) {
-		for (int i = 0; i <= answers.length; i++) {
+	@Override
+	public boolean checkAnswers(boolean[] studChoices) {
+		for (int i = 0; i <= answers.length - 1; i++) {
 			if (studChoices[i] != answers[i]) {
 				return false;
 			}
@@ -23,28 +24,30 @@ public class QuestionMult {
 		return true;
 	}
 	
-	
-	
-	
-	
-	
+	@Override
+	public boolean[] answerQuestion() {
+		boolean[] studAnswers = new boolean[choices.length];
+		int rand;
+		
+		for (int i = 0; i <= studAnswers.length - 1; i++) {
+			rand = ThreadLocalRandom.current().nextInt(1, 3);
+			if (rand == 1) {
+				studAnswers[i] = !studAnswers[i];
+			}
+		}
+		
+		return studAnswers;
+	}
 	
 	
 	private String[] multiOne = {
 			"Which of the following are animals?",
 			"Dog", "Cat", "Fish", "Lamp"
 	};
-	
-	private String[] multiOneA = {
-			"Dog", "Cat", "Fish"
+	private boolean[] multiOneA = {
+			true, true, true, false
 	};
+
+
 	
-	private String[] singleOne = {
-			"What color is the sky?",
-			"Red", "Green", "Blue"
-	};
-	
-	private String[] singleOneA = {
-			"Blue"
-	};
 }
