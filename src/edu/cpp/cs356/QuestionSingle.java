@@ -19,7 +19,6 @@ public class QuestionSingle implements Question {
 			"Red", "Green", "Blue", "Brown"
 	};
 	
-	
 	private boolean[] singleOneA = {
 		false, false, true, false
 	};
@@ -40,6 +39,5 @@ public class QuestionSingle implements Question {
 		studAnswers[choice] = !studAnswers[choice];
 		
 		return studAnswers;
-		
 	}
 }

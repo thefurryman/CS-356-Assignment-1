@@ -8,6 +8,15 @@ public class QuestionMult implements Question{
 	private boolean[] answers;
 	private String[] choices;
 	
+	private String[] multiOne = {
+			"Which of the following are animals?",
+			"Dog", "Cat", "Fish", "Lamp"
+	};
+	
+	private boolean[] multiOneA = {
+			true, true, true, false
+	};
+	
 	public QuestionMult() {
 		question = multiOne[0];
 		choices = new String[] {multiOne[1], multiOne[2], multiOne[3], multiOne[4]};
@@ -35,19 +44,6 @@ public class QuestionMult implements Question{
 				studAnswers[i] = !studAnswers[i];
 			}
 		}
-		
 		return studAnswers;
 	}
-	
-	
-	private String[] multiOne = {
-			"Which of the following are animals?",
-			"Dog", "Cat", "Fish", "Lamp"
-	};
-	private boolean[] multiOneA = {
-			true, true, true, false
-	};
-
-
-	
 }

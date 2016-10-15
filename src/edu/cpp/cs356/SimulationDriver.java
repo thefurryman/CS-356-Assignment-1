@@ -6,8 +6,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class SimulationDriver {
 
-	
 	public static void main(String[] args) {
+		start();
+	}
+	
+	public static void start() {
 		SimulationDriver driver = new SimulationDriver();
 		
 		ArrayList<Student> students = driver.generateStudents();
@@ -17,11 +20,8 @@ public class SimulationDriver {
 		for (int i = 0; i <= students.size() - 1; i++) {
 			service.answerQuestions(students.get(i));
 		}
-		
 		service.printStats();
-		
 	}
-	
 	
 	private Question initializeQuestion() {
 		Question question;
@@ -36,8 +36,9 @@ public class SimulationDriver {
 		}
 		return question;
 	}
+	
 	private ArrayList<Student> generateStudents() {
-		int MIN_STUDENT = 3;
+		int MIN_STUDENT = 1;
 		int MAX_STUDENT = 30;
 		String studId = "stud";
 		
@@ -48,9 +49,7 @@ public class SimulationDriver {
 			Student stud = new Student(studId + i);
 			students.add(stud);
 		}
-		
 		System.out.println(students.size() + " students generated.");
 		return students;
 	}
-
 }

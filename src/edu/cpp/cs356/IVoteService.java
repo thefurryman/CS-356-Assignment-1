@@ -7,13 +7,11 @@ public class IVoteService implements Service {
 
 	private ArrayList<Student> students;
 	private Question question;
-
 	
 	public IVoteService (ArrayList<Student> students, Question question) {
 		this.students = students;
 		this.question = question;
 	}
-	
 	
 	public void answerQuestions(Student student) {
 		boolean[] studAns = question.answerQuestion();
@@ -29,7 +27,6 @@ public class IVoteService implements Service {
 				"C: " + choiceCount[2] + "\n" +
 				"D: " + choiceCount[3] + "\n" +
 				"Right: " + correctCount[0] + " Wrong: " + correctCount[1]);
-		
 	}
 	
 	private void tally(boolean[] studAns) {
@@ -39,12 +36,10 @@ public class IVoteService implements Service {
 			}
 		}
 		
-		if (question.checkAnswers(studAns) == true) {
+		if (question.checkAnswers(studAns)) {
 			correctCount[0]++;
 		} else {
 			correctCount[1]++;
 		}
 	}
-
-
 }

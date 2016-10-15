@@ -11,12 +11,8 @@ public class Student {
 	public Student(String studId) {
 		this.studId = studId;
 	}
-	public boolean[] getAnswerChoices() {
-		return answerChoices;
-	}
 
 	public void setAnswerChoice(boolean[] answerChoices) {
 		this.answerChoices = answerChoices; 
 	}
-
 }
