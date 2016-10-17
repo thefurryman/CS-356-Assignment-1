@@ -13,7 +13,7 @@ public class IVoteService implements Service {
 		this.question = question;
 	}
 	
-	public void answerQuestions(Student student) {
+	public void answerQuestions(Student student) { //Student answers given question
 		boolean[] studAns = question.answerQuestion();
 		student.setAnswerChoice(studAns);
 		tally(studAns);
@@ -29,7 +29,8 @@ public class IVoteService implements Service {
 				"Right: " + correctCount[0] + " Wrong: " + correctCount[1]);
 	}
 	
-	private void tally(boolean[] studAns) {
+	//keeps track of answers chosen and number of correct answers
+	private void tally(boolean[] studAns) { 
 		for (int i = 0; i <= choiceCount.length - 1; i++) {
 			if (studAns[i] == true) {
 				choiceCount[i]++;

@@ -13,7 +13,7 @@ public class QuestionSingle implements Question {
 		choices = new String[] {singleOne[1], singleOne[2], singleOne[3], singleOne[4]};
 		answers = singleOneA;
 	}
-	
+	//singleOne and singleOneA are question + answer choices, and answers respectively
 	private String[] singleOne = {
 			"What color is the sky?",
 			"Red", "Green", "Blue", "Brown"
@@ -32,7 +32,7 @@ public class QuestionSingle implements Question {
 	}
 	
 	@Override
-	public boolean[] answerQuestion() {
+	public boolean[] answerQuestion() { //randomly choose one of the choices and set it to "true" single since choice
 		int choice = ThreadLocalRandom.current().nextInt(0, 4);
 		
 		boolean[] studAnswers = new boolean[choices.length];

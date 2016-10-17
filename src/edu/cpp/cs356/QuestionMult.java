@@ -8,6 +8,7 @@ public class QuestionMult implements Question{
 	private boolean[] answers;
 	private String[] choices;
 	
+	//multOne and multOneA are question + answer choices, and answers respectively
 	private String[] multiOne = {
 			"Which of the following are animals?",
 			"Dog", "Cat", "Fish", "Lamp"
@@ -33,8 +34,9 @@ public class QuestionMult implements Question{
 		return true;
 	}
 	
+	//for each answer choice, there is a 50/50 chance that the choice will be marked as "true"
 	@Override
-	public boolean[] answerQuestion() {
+	public boolean[] answerQuestion() { 
 		boolean[] studAnswers = new boolean[choices.length];
 		int rand;
 		

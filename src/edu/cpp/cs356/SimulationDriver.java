@@ -17,7 +17,8 @@ public class SimulationDriver {
 		Question question = driver.initializeQuestion();
 		Service service = new IVoteService(students, question);
 		
-		for (int i = 0; i <= students.size() - 1; i++) {
+		//every student will answer the question given
+		for (int i = 0; i <= students.size() - 1; i++) { 
 			service.answerQuestions(students.get(i));
 		}
 		service.printStats();
@@ -25,7 +26,7 @@ public class SimulationDriver {
 	
 	private Question initializeQuestion() {
 		Question question;
-		int randQ = ThreadLocalRandom.current().nextInt(1, 3);
+		int randQ = ThreadLocalRandom.current().nextInt(1, 3); //rand = 1 or 2 ("50/50")
 		
 		if (randQ == 1) {
 			question = new QuestionSingle();
