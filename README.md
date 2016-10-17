@@ -2,6 +2,9 @@
 Assignment based on iVote Service
 
 Alexander Kimea
+
 CS 356
+
 Yu Sun
+
 CPP EDU
